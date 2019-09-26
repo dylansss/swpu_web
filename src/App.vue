@@ -7,7 +7,26 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+import axios from 'axios'
+export default {
+  created () {
+    // axios.get('/user')
+    // Send a POST request
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000/user/register',
+      data: {
+        userName: 'Fred',
+        password: 'Flintstone'
+      }
+    }).then(res => {
+      debugger
+      console.log(res)
+    })
+  }
+}
+</script>
 <style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
